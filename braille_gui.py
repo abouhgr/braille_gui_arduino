@@ -596,74 +596,74 @@ class Ui_MainWindow(object):
     def update_act_0(self, actuators_copy):
         if actuators_copy[0] == '1':
             self.label_act1_state.setText("ON")
-            self.label_act1_state.setStyleSheet("color: green;")
+            self.label_act1_state.setStyleSheet("background-color: green;")
         elif actuators_copy[0] == '0':
             self.label_act1_state.setText("OFF")
-            self.label_act1_state.setStyleSheet("color: red;")
+            self.label_act1_state.setStyleSheet("background-color: red;")
 
     def update_act_1(self, actuators_copy):
         if actuators_copy[1] == '1':
             self.label_act2_state.setText("ON")
-            self.label_act2_state.setStyleSheet("color: green;")
+            self.label_act2_state.setStyleSheet("background-color: green;")
         elif actuators_copy[1] == '0':
             self.label_act2_state.setText("OFF")
-            self.label_act2_state.setStyleSheet("color: red;")
+            self.label_act2_state.setStyleSheet("background-color: red;")
 
     def update_act_2(self, actuators_copy):
         if actuators_copy[2] == '1':
             self.label_act3_state.setText('ON')
-            self.label_act3_state.setStyleSheet("color: green;")
+            self.label_act3_state.setStyleSheet("background-color: green;")
         elif actuators_copy[2] == '0':
             self.label_act3_state.setText('OFF')
-            self.label_act3_state.setStyleSheet("color: red;")
+            self.label_act3_state.setStyleSheet("background-color: red;")
 
     def update_act_3(self, actuators_copy):
         if actuators_copy[3] == '1':
             self.label_act4_state.setText('ON')
-            self.label_act4_state.setStyleSheet("color: green;")
+            self.label_act4_state.setStyleSheet("background-color: green;")
         elif actuators_copy[3] == '0':
             self.label_act4_state.setText('OFF')
-            self.label_act4_state.setStyleSheet("color: red;")
+            self.label_act4_state.setStyleSheet("background-color: red;")
 
     def update_act_4(self, actuators_copy):
         if actuators_copy[4] == '1':
             self.label_act5_state.setText('ON')
-            self.label_act5_state.setStyleSheet("color: green;")
+            self.label_act5_state.setStyleSheet("background-color: green;")
         elif actuators_copy[4] == '0':
             self.label_act5_state.setText('OFF')
-            self.label_act5_state.setStyleSheet("color: red;")
+            self.label_act5_state.setStyleSheet("background-color: red;")
 
     def update_act_5(self, actuators_copy):
         if actuators_copy[5] == '1':
             self.label_act6_state.setText('ON')
-            self.label_act6_state.setStyleSheet("color: green;")
+            self.label_act6_state.setStyleSheet("background-color: green;")
         elif actuators_copy[5] == '0':
             self.label_act6_state.setText('OFF')
-            self.label_act6_state.setStyleSheet("color: red;")
+            self.label_act6_state.setStyleSheet("background-color: red;")
 
     def update_act_6(self, actuators_copy):
         if actuators_copy[6] == '1':
             self.label_act7_state.setText('ON')
-            self.label_act7_state.setStyleSheet("color: green;")
+            self.label_act7_state.setStyleSheet("background-color: green;")
         elif actuators_copy[6] == '0':
             self.label_act7_state.setText('OFF')
-            self.label_act7_state.setStyleSheet("color: red;")
+            self.label_act7_state.setStyleSheet("background-color: red;")
 
     def update_act_7(self, actuators_copy):
         if actuators_copy[7] == '1':
             self.label_act8_state.setText('ON')
-            self.label_act8_state.setStyleSheet("color: green;")
+            self.label_act8_state.setStyleSheet("background-color: green;")
         elif actuators_copy[7] == '0':
             self.label_act8_state.setText('OFF')
-            self.label_act8_state.setStyleSheet("color: red;")
+            self.label_act8_state.setStyleSheet("background-color: red;")
 
     def update_act_8(self, actuators_copy):
         if actuators_copy[8] == '1':
             self.label_act9_state.setText('ON')
-            self.label_act9_state.setStyleSheet("color: green;")
+            self.label_act9_state.setStyleSheet("background-color: green;")
         elif actuators_copy[8] == '0':
             self.label_act9_state.setText('OFF')
-            self.label_act9_state.setStyleSheet("color: red;")
+            self.label_act9_state.setStyleSheet("background-color: red;")
 
 class WorkerSignals(QObject):
     signal = pyqtSignal()

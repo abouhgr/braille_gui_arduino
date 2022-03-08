@@ -47,13 +47,13 @@ class Arduino():
                 #print(data_str)
                 for i in range(9):
                     self.actuators[i] = data_str[i*2]
-                    print("Actuators: " + self.actuators[i])
+                    #print("Actuators: " + self.actuators[i])
             elif data_str.startswith("char"):
                 data_str = data_str.split(':')[1]
                 #print(data_str)
                 for i in range(20):
                     self.cell_chars[i] = data_str[i*2]
-                    print("chars: " + self.cell_chars[i])
+                    #print("chars: " + self.cell_chars[i])
             else:
                 print('YESSS' + data_str)
         except:
