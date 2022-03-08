@@ -31,10 +31,13 @@ class Arduino():
 
     def read_data(self):
         #TODO: Change the condition here!!
-        while self.connection_established:
+        if self.connection_established:
             data_read = self.arduino_conn.readline()
             data_str = data_read.decode('ascii')
             self.process_data(data_str)
+            return True
+        else:
+            return False
 
 
     def process_data(self, data_str):
@@ -44,15 +47,15 @@ class Arduino():
                 #print(data_str)
                 for i in range(9):
                     self.actuators[i] = data_str[i*2]
-                    #print("Actuators: " + self.actuators[i])
+                    print("Actuators: " + self.actuators[i])
             elif data_str.startswith("char"):
                 data_str = data_str.split(':')[1]
                 #print(data_str)
                 for i in range(20):
                     self.cell_chars[i] = data_str[i*2]
-                    #print("chars: " + self.cell_chars[i])
+                    print("chars: " + self.cell_chars[i])
             else:
-                print(data_str)
+                print('YESSS' + data_str)
         except:
             print('Error could have happened here')
 

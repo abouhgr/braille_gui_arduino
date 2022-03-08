@@ -453,7 +453,7 @@ class Ui_MainWindow(object):
 
         # ******         Actions             ******#
         self.pb_conn_ard.clicked.connect(self.connect_to_arduino)
-        self.pb_conn_ard.clicked.connect(self.update_gui_worker)
+        #self.pb_conn_ard.clicked.connect(self.update_gui_worker)
 
         self.pb_send.clicked.connect(self.send_signal)
 
@@ -543,176 +543,130 @@ class Ui_MainWindow(object):
     def read_data_worker(self):
         # Pass the function to execute
         worker = Worker(self.arduino.read_data)
+        worker.signals.signal.connect(self.update_gui)
 
         # Execute
         self.threadpool.start(worker)
 
     def update_gui(self):
-        while self.arduino.connection_established:
-            wait_time = 0.0001
-            actuators_copy = self.arduino.actuators
-            self.update_act_0(actuators_copy)
-            time.sleep(wait_time)
-            self.update_act_1(actuators_copy)
-            time.sleep(wait_time)
-            self.update_act_2(actuators_copy)
-            time.sleep(wait_time)
-            self.update_act_3(actuators_copy)
-            time.sleep(wait_time)
-            self.update_act_4(actuators_copy)
-            time.sleep(wait_time)
-            self.update_act_5(actuators_copy)
-            time.sleep(wait_time)
-            self.update_act_6(actuators_copy)
-            time.sleep(wait_time)
-            self.update_act_7(actuators_copy)
-            time.sleep(wait_time)
-            self.update_act_8(actuators_copy)
-            time.sleep(wait_time)
+        actuators_copy = self.arduino.actuators
+        self.update_act_0(actuators_copy)
+        self.update_act_1(actuators_copy)
+        self.update_act_2(actuators_copy)
+        self.update_act_3(actuators_copy)
+        self.update_act_4(actuators_copy)
+        self.update_act_5(actuators_copy)
+        self.update_act_6(actuators_copy)
+        self.update_act_7(actuators_copy)
+        self.update_act_8(actuators_copy)
 
-            chars_copy = self.arduino.cell_chars
-            self.update_chars(chars_copy)
+        chars_copy = self.arduino.cell_chars
+        self.update_chars(chars_copy)
 
 
-    def update_gui_worker(self):
+    '''def update_gui_worker(self):
         worker = Worker(self.update_gui)
 
         # Execute
-        self.threadpool.start(worker)
+        self.threadpool.start(worker)'''
 
 
     def update_chars(self, chars_copy):
-        wait_time = 0.0001
         self.label_c0_char.setText(chars_copy[0])
-        time.sleep(wait_time)
         self.label_c1_char.setText(chars_copy[1])
-        time.sleep(wait_time)
         self.label_c2_char.setText(chars_copy[2])
-        time.sleep(wait_time)
         self.label_c3_char.setText(chars_copy[3])
-        time.sleep(wait_time)
         self.label_c4_char.setText(chars_copy[4])
-        time.sleep(wait_time)
         self.label_c5_char.setText(chars_copy[5])
-        time.sleep(wait_time)
         self.label_c6_char.setText(chars_copy[6])
-        time.sleep(wait_time)
         self.label_c7_char.setText(chars_copy[7])
-        time.sleep(wait_time)
         self.label_c8_char.setText(chars_copy[8])
-        time.sleep(wait_time)
         self.label_c9_char.setText(chars_copy[9])
-        time.sleep(wait_time)
         self.label_c10_char.setText(chars_copy[10])
-        time.sleep(wait_time)
         self.label_c11_char.setText(chars_copy[11])
-        time.sleep(wait_time)
         self.label_c12_char.setText(chars_copy[12])
-        time.sleep(wait_time)
         self.label_c13_char.setText(chars_copy[13])
-        time.sleep(wait_time)
         self.label_c14_char.setText(chars_copy[14])
-        time.sleep(wait_time)
         self.label_c15_char.setText(chars_copy[15])
-        time.sleep(wait_time)
         self.label_c16_char.setText(chars_copy[16])
-        time.sleep(wait_time)
         self.label_c17_char.setText(chars_copy[17])
-        time.sleep(wait_time)
         self.label_c18_char.setText(chars_copy[18])
-        time.sleep(wait_time)
         self.label_c19_char.setText(chars_copy[19])
-        time.sleep(wait_time)
 
     def update_act_0(self, actuators_copy):
         if actuators_copy[0] == '1':
             self.label_act1_state.setText("ON")
-            time.sleep(0.0001)
             self.label_act1_state.setStyleSheet("color: green;")
         elif actuators_copy[0] == '0':
             self.label_act1_state.setText("OFF")
-            time.sleep(0.0001)
             self.label_act1_state.setStyleSheet("color: red;")
 
     def update_act_1(self, actuators_copy):
         if actuators_copy[1] == '1':
             self.label_act2_state.setText("ON")
-            time.sleep(0.0001)
             self.label_act2_state.setStyleSheet("color: green;")
         elif actuators_copy[1] == '0':
             self.label_act2_state.setText("OFF")
-            time.sleep(0.0001)
             self.label_act2_state.setStyleSheet("color: red;")
 
     def update_act_2(self, actuators_copy):
         if actuators_copy[2] == '1':
             self.label_act3_state.setText('ON')
-            time.sleep(0.0001)
             self.label_act3_state.setStyleSheet("color: green;")
         elif actuators_copy[2] == '0':
             self.label_act3_state.setText('OFF')
-            time.sleep(0.0001)
             self.label_act3_state.setStyleSheet("color: red;")
 
     def update_act_3(self, actuators_copy):
         if actuators_copy[3] == '1':
             self.label_act4_state.setText('ON')
-            time.sleep(0.0001)
             self.label_act4_state.setStyleSheet("color: green;")
         elif actuators_copy[3] == '0':
             self.label_act4_state.setText('OFF')
-            time.sleep(0.0001)
             self.label_act4_state.setStyleSheet("color: red;")
 
     def update_act_4(self, actuators_copy):
         if actuators_copy[4] == '1':
             self.label_act5_state.setText('ON')
-            time.sleep(0.0001)
             self.label_act5_state.setStyleSheet("color: green;")
         elif actuators_copy[4] == '0':
             self.label_act5_state.setText('OFF')
-            time.sleep(0.0001)
             self.label_act5_state.setStyleSheet("color: red;")
 
     def update_act_5(self, actuators_copy):
         if actuators_copy[5] == '1':
             self.label_act6_state.setText('ON')
-            time.sleep(0.0001)
             self.label_act6_state.setStyleSheet("color: green;")
         elif actuators_copy[5] == '0':
             self.label_act6_state.setText('OFF')
-            time.sleep(0.0001)
             self.label_act6_state.setStyleSheet("color: red;")
 
     def update_act_6(self, actuators_copy):
         if actuators_copy[6] == '1':
             self.label_act7_state.setText('ON')
-            time.sleep(0.0001)
             self.label_act7_state.setStyleSheet("color: green;")
         elif actuators_copy[6] == '0':
             self.label_act7_state.setText('OFF')
-            time.sleep(0.0001)
             self.label_act7_state.setStyleSheet("color: red;")
 
     def update_act_7(self, actuators_copy):
         if actuators_copy[7] == '1':
             self.label_act8_state.setText('ON')
-            time.sleep(0.0001)
             self.label_act8_state.setStyleSheet("color: green;")
         elif actuators_copy[7] == '0':
             self.label_act8_state.setText('OFF')
-            time.sleep(0.0001)
             self.label_act8_state.setStyleSheet("color: red;")
 
     def update_act_8(self, actuators_copy):
         if actuators_copy[8] == '1':
             self.label_act9_state.setText('ON')
-            time.sleep(0.0001)
             self.label_act9_state.setStyleSheet("color: green;")
         elif actuators_copy[8] == '0':
             self.label_act9_state.setText('OFF')
-            time.sleep(0.0001)
             self.label_act9_state.setStyleSheet("color: red;")
+
+class WorkerSignals(QObject):
+    signal = pyqtSignal()
 
 
 class Worker(QRunnable):
@@ -735,10 +689,14 @@ class Worker(QRunnable):
         self.fn = fn
         self.args = args
         self.kwargs = kwargs
+        self.signals = WorkerSignals()
 
     @pyqtSlot()
     def run(self):
         '''
         Initialise the runner function with passed args, kwargs.
         '''
-        self.fn(*self.args, **self.kwargs)
+        return_value = True
+        while return_value:
+            return_value = self.fn(*self.args, **self.kwargs)
+            self.signals.signal.emit()
