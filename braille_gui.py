@@ -533,18 +533,17 @@ class Ui_MainWindow(object):
 
 
     def send_signal(self):
-        pwm_in = self.lineEdit_pwm.text()
-        self.arduino.send_data('pwm:' + pwm_in)
+        '''pwm_in = self.lineEdit_pwm.text()
+        self.arduino.send_data('pwm:' + pwm_in + ';')
 
         act_start_dgr = self.lineEdit_dgr_start.text()
-        self.arduino.send_data('strt:' + act_start_dgr)
+        self.arduino.send_data('strt:' + act_start_dgr + ';')
 
         act_stop_dgr = self.lineEdit_dgr_stop.text()
-        self.arduino.send_data('stop:' + act_stop_dgr)
+        self.arduino.send_data('stop:' + act_stop_dgr + ';')'''
 
         operation_seq = self.lineEdit_act_sequence.text()
-        self.arduino.send_data('seq:' + operation_seq)
-
+        self.arduino.send_data(operation_seq + '$')
 
 
     def connect_to_arduino(self):

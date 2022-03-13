@@ -55,7 +55,7 @@ class Arduino():
                     self.cell_chars[i] = data_str[i*2]
                     #print("chars: " + self.cell_chars[i])
             else:
-                print('YESSS' + data_str)
+                print('x:' + data_str)
         except:
             print('Error could have happened here')
 
