@@ -462,6 +462,10 @@ class Ui_MainWindow(object):
 
         self.pb_send.clicked.connect(self.send_signal)
 
+        self.lineEdit_dgr_stop.setEnabled(False)
+        self.lineEdit_dgr_start.setEnabled(False)
+        self.lineEdit_pwm.setEnabled(False)
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
