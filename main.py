@@ -26,7 +26,7 @@ class Arduino():
             self.arduino_conn.close()
 
     def send_data(self, data):
-        print('The data to be sent: ' + data)
+        #print('The data to be sent: ' + data)
         self.arduino_conn.write(bytes(data, 'UTF-8'))
 
     def read_data(self):
@@ -54,8 +54,6 @@ class Arduino():
                 for i in range(20):
                     self.cell_chars[i] = data_str[i*2]
                     #print("chars: " + self.cell_chars[i])
-            else:
-                print('x:' + data_str)
         except:
             print('Error could have happened here')
 

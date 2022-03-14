@@ -465,6 +465,7 @@ class Ui_MainWindow(object):
         self.lineEdit_dgr_stop.setEnabled(False)
         self.lineEdit_dgr_start.setEnabled(False)
         self.lineEdit_pwm.setEnabled(False)
+        self.pb_send.setEnabled(False)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -555,9 +556,11 @@ class Ui_MainWindow(object):
         self.arduino.connect_to_arduino(com_port)
         if self.arduino.connection_established:
             self.pb_conn_ard.setText('Disconnect')
+            self.pb_send.setEnabled(True)
             self.lineEdit_com.setEnabled(False)
         else:
             self.pb_conn_ard.setText('Connect')
+            self.pb_send.setEnabled(False)
             self.lineEdit_com.setEnabled(True)
         self.read_data_worker()
 
